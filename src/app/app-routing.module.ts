@@ -8,6 +8,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductsComponent } from './products/products.component';
 
+import { AdminGuard } from './admin.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
+        canActivate: [AdminGuard],
         component: ProductsComponent
       },
       {
@@ -32,6 +35,7 @@ const routes: Routes = [
       },
       {
         path: 'contact',
+        canActivate: [AdminGuard],
         component: ContactComponent
       },
     ]
